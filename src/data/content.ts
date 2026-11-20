@@ -55,10 +55,10 @@ export const nav: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "Services",
-    href: "/services",
+    href: "/digital-marketing-services",
     children: services.map((s) => ({
       label: s.title.replace(/ \(.*\)$/, ""),
-      href: `/services/${s.slug}`,
+      href: `/digital-marketing-services#${s.slug}`,
     })),
   },
   { label: "Industries", href: "/#industries" },
