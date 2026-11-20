@@ -18,16 +18,18 @@ export function ArrowRight({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ height = 36 }: { height?: number }) {
+// Khayra Technologies wordmark (PNG, 1018x281, transparent background).
+const LOGO_RATIO = 1018 / 281;
+
+export function Logo({ height = 48 }: { height?: number }) {
   return (
-    <Link href="/" aria-label="Khayra home" style={{ display: "inline-flex" }}>
+    <Link href="/" aria-label="Khayra Technologies home" style={{ display: "inline-flex" }}>
       <Image
-        src="/logo/khayra-logo.svg"
-        alt="Khayra"
-        width={Math.round((height * 330) / 80)}
+        src="/logo/khayra-technologies-logo.png"
+        alt="Khayra Technologies"
+        width={Math.round(height * LOGO_RATIO)}
         height={height}
         priority
-        unoptimized
       />
     </Link>
   );

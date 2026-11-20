@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <Logo height={32} />
+          <Logo height={40} />
           <p>
             Strategy-first digital marketing that helps businesses attract, engage
             and convert more customers.

@@ -212,3 +212,10 @@
     display: inline-flex;
   }
 }
+
+@media (max-width: 960px) {
+  .bar > a:first-child img {
+    height: 42px;
+    width: auto;
+  }
+}
