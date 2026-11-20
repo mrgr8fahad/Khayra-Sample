@@ -5,7 +5,14 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+// Absolute base for canonical, og:url and og:image. On Vercel this is the
+// production domain (your custom domain once one is added).
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   // Keep the whole site out of search results until launch.
   // Remove this (and public/robots.txt) to go live.
   robots: { index: false, follow: true },
