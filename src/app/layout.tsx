@@ -6,6 +6,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  // Keep the whole site out of search results until launch.
+  // Remove this (and public/robots.txt) to go live.
+  robots: { index: false, follow: true },
   title: "Khayra | Digital Marketing Agency That Drives Real Business Growth",
   description:
     "Khayra helps businesses build a stronger digital presence with SEO, Google Ads, social media, performance marketing, web development and branding.",
