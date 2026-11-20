@@ -5,9 +5,9 @@ const I = "/icons/dm";
 
 export const pageMeta = {
   path: "/digital-marketing-services",
-  title: "Digital Marketing Services | SEO, Google Ads, Social Media & Web | Khayra",
+  title: "Best Digital Marketing Services | Khayra Tech",
   description:
-    "Strategic digital marketing services from Khayra: SEO, Google Ads, social media, performance marketing, website development, content, branding, and email & WhatsApp marketing.",
+    "Grow with Khayra: SEO, Google Ads, social media, performance marketing, web development, content, branding and email marketing.",
 };
 
 export const hero = {
