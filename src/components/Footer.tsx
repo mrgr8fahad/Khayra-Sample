@@ -21,7 +21,7 @@ export default function Footer() {
           <ul>
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`}>{s.title.replace(/ \(.*\)$/, "")}</Link>
+                <Link href={`/digital-marketing-services#${s.slug}`}>{s.title.replace(/ \(.*\)$/, "")}</Link>
               </li>
             ))}
           </ul>

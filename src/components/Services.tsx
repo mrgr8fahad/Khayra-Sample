@@ -24,7 +24,7 @@ export default function Services() {
         <ul className={styles.grid}>
           {services.map((s) => (
             <li key={s.slug}>
-              <Link href={`/services/${s.slug}`} className={styles.card}>
+              <Link href={`/digital-marketing-services#${s.slug}`} className={styles.card}>
                 <IconBadge src={s.icon} size={46} />
                 <div className={styles.body}>
                   <h3>{s.title}</h3>
