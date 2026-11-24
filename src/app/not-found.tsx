@@ -11,8 +11,14 @@ export const metadata: Metadata = {
 // Only link to pages that exist.
 const popular = [
   {
+    href: "/",
+    icon: "/icons/dm/benefits/strategy.svg",
+    title: "Home",
+    text: "Start again from our homepage.",
+  },
+  {
     href: "/digital-marketing-services",
-    icon: "/icons/dm/services/performance-marketing.svg",
+    icon: "/icons/dm/process/strategize.svg",
     title: "Digital Marketing Services",
     text: "Everything we offer, in one place.",
   },
@@ -33,6 +39,18 @@ const popular = [
     icon: "/icons/dm/services/social-media.svg",
     title: "Social Media Marketing",
     text: "Build awareness and engagement on social.",
+  },
+  {
+    href: "/digital-marketing-services#performance-marketing",
+    icon: "/icons/dm/process/measure.svg",
+    title: "Performance Marketing",
+    text: "ROI-focused campaigns on Google and Meta.",
+  },
+  {
+    href: "/digital-marketing-services#content-marketing",
+    icon: "/icons/dm/services/content-marketing.svg",
+    title: "Content Marketing",
+    text: "Content that informs and builds trust.",
   },
   {
     href: "/digital-marketing-services#website-development",
