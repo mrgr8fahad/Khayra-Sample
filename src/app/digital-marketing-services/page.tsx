@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/content";
+import { siteUrl } from "@/lib/site-url";
 import {
+  areaServed,
   caseStudies,
   engagement,
   faqs,
@@ -13,6 +15,7 @@ import {
   intro,
   pageMeta,
   process,
+  rating,
   services,
   stages,
   whyUs,
@@ -33,30 +36,74 @@ export const metadata: Metadata = {
   },
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a.replace(/\n\n- /g, "\n- ") },
-  })),
-};
+const pageUrl = `${siteUrl}${pageMeta.path}`;
+const orgId = `${siteUrl}/#organization`;
 
-const serviceJsonLd = {
+// One JSON-LD graph: Organization, Service (with aggregateRating) and FAQPage.
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "Digital marketing services",
-  provider: { "@type": "Organization", name: "Khayra" },
-  description: pageMeta.description,
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Digital Marketing Services",
-    itemListElement: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.heading, description: s.tagline },
-    })),
-  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": orgId,
+      name: "Khayra Technologies",
+      alternateName: "Khayra",
+      url: siteUrl,
+      logo: `${siteUrl}/logo/khayra-technologies-logo.png`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: areaServed.city,
+        addressRegion: areaServed.region,
+        addressCountry: areaServed.country,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "Digital Marketing Services",
+      serviceType: "Digital marketing",
+      description: pageMeta.description,
+      url: pageUrl,
+      image: `${pageUrl}/opengraph-image.jpg`,
+      provider: { "@id": orgId },
+      areaServed: {
+        "@type": "City",
+        name: areaServed.city,
+        containedInPlace: { "@type": "State", name: areaServed.region },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: rating.value,
+        reviewCount: rating.count,
+        bestRating: rating.best,
+        worstRating: 1,
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Digital Marketing Services",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.heading,
+            description: s.tagline,
+            url: `${pageUrl}#${s.id}`,
+            provider: { "@id": orgId },
+          },
+        })),
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      url: pageUrl,
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a.replace(/\n\n- /g, "\n- ") },
+      })),
+    },
+  ],
 };
 
 function jsonLd(data: object) {
@@ -79,8 +126,7 @@ function IncludeItem({ text }: { text: string }) {
 export default function DigitalMarketingServicesPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(serviceJsonLd)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structuredData)} />
 
       {/* 1. Hero */}
       <section className={styles.hero}>
@@ -119,6 +165,12 @@ export default function DigitalMarketingServicesPage() {
                 </li>
               ))}
             </ul>
+            <p className={styles.rating}>
+              <span className={styles.stars} style={{ "--rating": rating.value } as React.CSSProperties} aria-hidden="true" />
+              <span>
+                <strong>{rating.value}</strong>/{rating.best} rating from {rating.count} client reviews
+              </span>
+            </p>
           </div>
           <div className={styles.heroVisual}>
             <Image
