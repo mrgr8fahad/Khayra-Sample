@@ -123,7 +123,7 @@ export default function DigitalMarketingServicesPage() {
           <div className={styles.heroVisual}>
             <Image
               src="/images/dm-hero.png"
-              alt="Digital marketing specialist reviewing campaign performance on a laptop"
+              alt="Digital marketing services in Coimbatore"
               width={512}
               height={355}
               priority
