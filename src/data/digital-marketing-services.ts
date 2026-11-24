@@ -10,6 +10,20 @@ export const pageMeta = {
     "Grow with Khayra: SEO, Google Ads, social media, performance marketing, web development, content, branding and email marketing.",
 };
 
+// Shown on the page and in the Service schema's aggregateRating. Google requires
+// these to match real reviews customers can see, so keep them in sync.
+export const rating = {
+  value: 4.5,
+  count: 50,
+  best: 5,
+};
+
+export const areaServed = {
+  city: "Coimbatore",
+  region: "Tamil Nadu",
+  country: "IN",
+};
+
 export const hero = {
   eyebrow: "Digital Marketing Services",
   titleLead: "Digital Marketing Services That Turn Your Business Goals",
