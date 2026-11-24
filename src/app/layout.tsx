@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Google Search Console ownership verification
+  verification: { google: "WjOnBRETk3vmINFF3l8qQS7cKpL7mRIB-_lHXtpsIlg" },
   // Keep the whole site out of search results until launch.
   // Remove this (and public/robots.txt) to go live.
   robots: { index: false, follow: true },
