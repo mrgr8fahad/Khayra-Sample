@@ -1,0 +1,134 @@
+.wrap {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  background:
+    radial-gradient(circle at 85% 10%, rgba(152, 104, 242, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(152, 104, 242, 0.12), transparent 40%),
+    linear-gradient(180deg, #fff 0%, #faf7ff 100%);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 18vw, 11rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #9868f2 0%, #8e5ced 45%, #5b20d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+}
+
+.lead {
+  max-width: 34rem;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.popular {
+  width: 100%;
+  max-width: 960px;
+  margin-top: clamp(3rem, 6vw, 4rem);
+}
+
+.popular h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  height: 100%;
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 1px solid var(--khayra-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #d6c4f7;
+  box-shadow: var(--shadow-lift);
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.cardText strong {
+  font-size: 0.95rem;
+  color: var(--khayra-ink);
+}
+
+.cardText span {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--khayra-muted);
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--khayra-muted);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.card:hover .arrow {
+  transform: translateX(3px);
+  color: var(--khayra-purple);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+}
