@@ -283,7 +283,7 @@ export default function DigitalMarketingServicesPage() {
           <div className={styles.whyVisual}>
             <Image
               src="/images/dm-about.png"
-              alt="Marketing strategist planning a client's growth strategy"
+              alt="Digital marketing services in Coimbatore"
               width={305}
               height={210}
               sizes="(max-width: 900px) 80vw, 380px"
